@@ -75,7 +75,7 @@ jobs:
       - name: Create cross-build environment
         working-directory: pyodide_checkout/
         run: |
-          python tools.create_xbuildenv.py .
+          python tools/create_xbuildenv.py .
           tar cjf xbuildenv.tar.gz ./xbuildenv/
 
       - name: Upload cross-build environment
