@@ -63,7 +63,7 @@ jobs:
           make -C emsdk
           make -C cpython
           pip install -e ./pyodide-build
-          pyodide build-recipes "numpy,scipy,cffi" --install
+          PYODIDE_PACKAGES="numpy,scipy,cffi" make
           ccache -s
 
       - name: Save ccached outputs
