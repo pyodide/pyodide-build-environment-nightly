@@ -14,7 +14,7 @@ You can use the `pyodide xbuildenv install` command to install the build environ
 pip install pyodide-build
 
 # Change the date to the date of the build you want to use
-pyodide xbuildenv install "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250125/xbuildenv.tar.bz"
+pyodide xbuildenv install --url "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250125/xbuildenv.tar.bz"
 
 # Now you can use the build environment to build your package
 pyodide build
