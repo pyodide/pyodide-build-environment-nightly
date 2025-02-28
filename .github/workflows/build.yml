@@ -130,7 +130,7 @@ jobs:
           if [[ ${{ github.event_name }} == 'schedule' ]]; then
             echo "release_version=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
           else
-            echo "release_version=${{ github.ref }}" >> $GITHUB_OUTPUT
+            echo "release_version=${{ github.ref_name  }}" >> $GITHUB_OUTPUT
           fi
 
           cat $GITHUB_OUTPUT
