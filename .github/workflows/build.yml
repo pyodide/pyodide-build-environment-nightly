@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+    tags:        
+      - '*' 
   workflow_dispatch:
   schedule:
     # Run at 00:00 UTC on the 1st, 10th, and 20th of every month
