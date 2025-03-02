@@ -1,0 +1,24 @@
+name: Create Periodic Tag
+
+on:
+  schedule:
+    # Run at 00:00 UTC on the 1st, 10th, and 20th of every month
+    - cron: '0 0 1,10,20 * *'
+  workflow_dispatch:
+
+jobs:
+  create-tag:
+    runs-on: ubuntu-latest
+    if: github.repository == 'pyodide/pyodide-build-environment-nightly'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Create and push tag
+        run: |
+          TAG_NAME=$(date +'%Y%m%d')
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
