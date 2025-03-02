@@ -8,9 +8,6 @@ on:
     tags:        
       - '*' 
   workflow_dispatch:
-  schedule:
-    # Run at 00:00 UTC on the 1st, 10th, and 20th of every month
-    - cron: '0 0 1,10,20 * *'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -102,8 +99,7 @@ jobs:
     needs: [build]
     if: >-
       github.repository == 'pyodide/pyodide-build-environment-nightly' &&
-      (github.event_name == 'push' && startsWith(github.ref, 'refs/tags')) ||
-      (github.event_name == 'schedule')
+      (github.event_name == 'push' && startsWith(github.ref, 'refs/tags'))
     permissions:
       # Required to sign the attestations
       id-token: write
@@ -127,11 +123,7 @@ jobs:
         id: release_version
         shell: bash
         run: |
-          if [[ ${{ github.event_name }} == 'schedule' ]]; then
-            echo "release_version=$(date +'%Y%m%d')" >> $GITHUB_OUTPUT
-          else
-            echo "release_version=${{ github.ref_name  }}" >> $GITHUB_OUTPUT
-          fi
+          echo "release_version=${{ github.ref_name  }}" >> $GITHUB_OUTPUT
 
           cat $GITHUB_OUTPUT
 
