@@ -83,14 +83,14 @@ jobs:
         working-directory: pyodide_checkout/
         run: |
           python tools/create_xbuildenv.py .
-          tar cjf xbuildenv.tar.bz ./xbuildenv/
+          tar cjf xbuildenv.tar.bz2 ./xbuildenv/
 
       - name: Upload cross-build environment
         uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # v4.5.0
         with:
           name: cross-build-env
           path: |
-            pyodide_checkout/xbuildenv.tar.bz
+            pyodide_checkout/xbuildenv.tar.bz2
           if-no-files-found: error
           retention-days: 1
 
@@ -117,7 +117,7 @@ jobs:
         uses: actions/attest-build-provenance@7668571508540a607bdfd90a87a560489fe372eb # v2.1.0
         with:
           subject-path: |
-            dist/xbuildenv.tar.bz
+            dist/xbuildenv.tar.bz2
       
       - name: Calc release version
         id: release_version
@@ -132,12 +132,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
-          gh attestation verify dist/xbuildenv.tar.bz --repo ${{ github.repository }}
+          gh attestation verify dist/xbuildenv.tar.bz2 --repo ${{ github.repository }}
 
       - name: Create GitHub release with these wheels
         uses: softprops/action-gh-release@01570a1f39cb168c169c802c3bceb9e93fb10974 # v2.1.0
         with:
           files: |
-            dist/*.tar.bz
+            dist/*.tar.bz2
           fail_on_unmatched_files: true
           name: ${{ steps.release_version.outputs.release_version }}
