@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   build:
-    uses: ./.github/composite/build-job.yml@main
+    uses: ./.github/actions/build-xbuildenv
 
   publish:
     runs-on: ubuntu-latest
