@@ -1,4 +1,4 @@
-name: Build Cross-build environment for pyodide-build
+name: Release Cross-build environment
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - '*' 
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: release-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
