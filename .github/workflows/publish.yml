@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   build:
-    uses: ./.github/workflows/composite/build-job.yml
+    uses: ./.github/composite/build-job.yml
 
   publish:
     runs-on: ubuntu-latest
