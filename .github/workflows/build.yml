@@ -13,4 +13,4 @@ concurrency:
 
 jobs:
   build:
-    uses: ./.github/composite/build-job.yml
+    uses: ./.github/composite/build-job.yml@main
