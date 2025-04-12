@@ -4,6 +4,12 @@ description: This composite action encapsulates the build job for creating the c
 
 on:
   workflow_call:
+    inputs:
+      branch:
+        type: string
+        description: 'The branch to build'
+        default: 'main'
+        required: false
 
 jobs:
   build:
@@ -36,11 +42,11 @@ jobs:
           path: /tmp/ccache
           key: ccache-${{ hashFiles('Makefile.envs') }}
 
-      - name: Check out Pyodide, and the NumPy v2 mirror branch
+      - name: Checkout Pyodide
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           repository: pyodide/pyodide
-          ref: main
+          ref: ${{ inputs.branch }}
           path: pyodide_checkout
           submodules: recursive
 
