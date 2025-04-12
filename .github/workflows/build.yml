@@ -6,6 +6,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'The branch to build'
+        default: 'main'
+        required: false
 
 concurrency:
   group: build-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -14,3 +19,6 @@ concurrency:
 jobs:
   build:
     uses: ./.github/workflows/build-xbuildenv.yml
+    secrets: inherit
+    with:
+      branch: ${{ github.event.inputs.branch || 'main' }}
