@@ -43,7 +43,7 @@ jobs:
         uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
           path: /tmp/ccache
-          key: ccache-${{ hashFiles('Makefile.envs') }}
+          key: ccache-${{ matrix.build_type == 'debug' && 'debug-' || '' }}${{ hashFiles('Makefile.envs') }}
 
       - name: Checkout Pyodide
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -60,7 +60,7 @@ jobs:
             pyodide_checkout/packages/.libs/*
             pyodide_checkout/packages/.artifacts/*
             pyodide_checkout/dist/*.whl
-          key: pyodide-packages-${{ hashFiles('pyodide_checkout/packages/recipes/**/*.yaml') }}
+          key: pyodide-packages-${{ matrix.build_type == 'debug' && 'debug-' || '' }}${{ hashFiles('pyodide_checkout/packages/recipes/**/*.yaml') }}
 
       - run: echo "PYODIDE_JOBS=$(nproc)" >> "$GITHUB_ENV"
 
@@ -79,7 +79,7 @@ jobs:
         uses: actions/cache/save@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
         with:
           path: /tmp/ccache
-          key: ccache-${{ hashFiles('Makefile.envs') }}
+          key: ccache-${{ matrix.build_type == 'debug' && 'debug-' || '' }}${{ hashFiles('Makefile.envs') }}
 
       - name: Create cross-build environment
         working-directory: pyodide_checkout/
