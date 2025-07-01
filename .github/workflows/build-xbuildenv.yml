@@ -64,6 +64,10 @@ jobs:
 
       - run: echo "PYODIDE_JOBS=$(nproc)" >> "$GITHUB_ENV"
 
+      - name: Set debug environment
+        if: matrix.build_type == 'debug'
+        run: echo "PYODIDE_DEBUG=1" >> "$GITHUB_ENV"
+
       - name: Build Pyodide packages with NumPy v2 enabled
         working-directory: pyodide_checkout/
         run: |
@@ -85,13 +89,17 @@ jobs:
         working-directory: pyodide_checkout/
         run: |
           python tools/create_xbuildenv.py .
-          tar cjf xbuildenv.tar.bz2 ./xbuildenv/
+          if [[ "${{ matrix.build_type }}" == "debug" ]]; then
+            tar cjf xbuildenv-debug.tar.bz2 ./xbuildenv/
+          else
+            tar cjf xbuildenv.tar.bz2 ./xbuildenv/
+          fi
 
       - name: Upload cross-build environment
         uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # v4.5.0
         with:
-          name: cross-build-env
+          name: cross-build-env${{ matrix.build_type == 'debug' && '-debug' || '' }}
           path: |
-            pyodide_checkout/xbuildenv.tar.bz2
+            pyodide_checkout/xbuildenv*.tar.bz2
           if-no-files-found: error
           retention-days: 1
