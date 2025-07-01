@@ -64,11 +64,7 @@ jobs:
 
       - run: echo "PYODIDE_JOBS=$(nproc)" >> "$GITHUB_ENV"
 
-      - name: Set debug environment
-        if: matrix.build_type == 'debug'
-        run: echo "PYODIDE_DEBUG=1" >> "$GITHUB_ENV"
-
-      - name: Build Pyodide packages with NumPy v2 enabled
+      - name: Build Pyodide packages with NumPy v2 enabled (release version)
         working-directory: pyodide_checkout/
         run: |
           source pyodide_env.sh
@@ -78,6 +74,20 @@ jobs:
           pip install -e ./pyodide-build
           PYODIDE_PACKAGES="numpy,scipy,cffi" make
           ccache -s
+
+      - name: Build debug version
+        if: matrix.build_type == 'debug'
+        working-directory: pyodide_checkout/
+        run: |
+          rm dist/pyodide.asm.js
+          source pyodide_env.sh
+          ccache -z
+          PYODIDE_DEBUG=1 make dist/pyodide.asm.js
+          ccache -s
+          pushd dist
+          npx prettier -w pyodide.asm.js
+          npx prettier -w pyodide.js
+          popd
 
       - name: Save ccached outputs
         uses: actions/cache/save@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
