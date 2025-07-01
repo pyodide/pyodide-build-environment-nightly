@@ -47,12 +47,19 @@ jobs:
           path: dist
           merge-multiple: true
 
+      - uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
+        with:
+          name: cross-build-env-debug
+          path: dist
+          merge-multiple: true
+
       - name: Generate attestations
         uses: actions/attest-build-provenance@7668571508540a607bdfd90a87a560489fe372eb # v2.1.0
         with:
           subject-path: |
             dist/xbuildenv.tar.bz2
-      
+            dist/xbuildenv-debug.tar.bz2
+
       - name: Calc release version
         id: release_version
         shell: bash
@@ -71,6 +78,7 @@ jobs:
         shell: bash
         run: |
           gh attestation verify dist/xbuildenv.tar.bz2 --repo ${{ github.repository }}
+          gh attestation verify dist/xbuildenv-debug.tar.bz2 --repo ${{ github.repository }}
       
       - name: Create and push tag
         run: |
