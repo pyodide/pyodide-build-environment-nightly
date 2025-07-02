@@ -26,7 +26,7 @@ pyodide build
 
 #### Debug builds
 
-For debugging purposes, you can also use the debug build environment:
+For debugging purposes, you can also use the debug version of the cross build environment:
 
 ```bash
 pip install pyodide-build
@@ -34,11 +34,16 @@ pip install pyodide-build
 # Change the date to the date of the build you want to use
 pyodide xbuildenv install --url "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250125/xbuildenv-debug.tar.bz2"
 
-# Now you can use the debug build environment to build your package
+# Now you can use the build environment to build your package
 pyodide build
 ```
 
-The debug build environment is built with `PYODIDE_DEBUG=1` and includes additional debugging information.
+The debug cross build environment is built with `PYODIDE_DEBUG=1` and provides additional debugging information.
+
+> [!NOTE]
+> The debug build does not make a difference in the build process itself. It is useful if you use the Pyodide CLI runner (`pyodide venv`), as
+it will automatically use the installed debug cross build environment for the Pyodide runtime and provide additional debugging information. To
+remove the debug build environment, you may use the `pyodide xbuildenv uninstall` command.
 
 ## Maintainer Notes
 
