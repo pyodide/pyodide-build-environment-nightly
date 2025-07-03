@@ -42,8 +42,8 @@ The debug cross build environment is built with `PYODIDE_DEBUG=1` and provides a
 
 > [!NOTE]
 > The debug build does not make a difference in the build process itself. It is useful if you use the Pyodide CLI runner (`pyodide venv`), as
-it will automatically use the installed debug cross build environment for the Pyodide runtime and provide additional debugging information. To
-remove the debug build environment, you may use the `pyodide xbuildenv uninstall` command.
+> it will automatically use the installed debug cross build environment for the Pyodide runtime and provide additional debugging information. To
+> remove the debug build environment, you may use the `pyodide xbuildenv uninstall` command.
 
 ## Maintainer Notes
 
