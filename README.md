@@ -1,8 +1,8 @@
-# pyodide-build-environment-nightly
+# 🌉 pyodide-build-environment-nightly
 
 Nightly cross build environments for building Pyodide packages
 
-## Usage
+## 🔧 Usage
 
 This repository contains nightly cross build environments for building Pyodide packages.
 The target user of this repository is package maintainers who want to build their packages against the unreleased version of Pyodide.
@@ -45,7 +45,20 @@ The debug cross build environment is built with `PYODIDE_DEBUG=1` and provides a
 > it will automatically use the installed debug cross build environment for the Pyodide runtime and provide additional debugging information. To
 > remove the debug build environment, you may use the `pyodide xbuildenv uninstall` command.
 
-## Maintainer Notes
+## 🔐 Verifying the release artifacts
+
+If you would like to verify the provenance and integrity of the release artifacts, you may download them and use the `gh attestation` command.
+
+```bash
+gh attestation verify dist/xbuildenv.tar.bz2 --repo pyodide/pyodide-build-environment-nightly
+gh attestation verify dist/xbuildenv-debug.tar.bz2 --repo pyodide/pyodide-build-environment-nightly
+```
+
+For more details on how to use the `gh attestation` command, please refer to the the [GitHub CLI documentation](https://cli.github.com/manual/gh_attestation_verify).
+
+For more information on attestations, please refer to the [GitHub Attestations documentation](https://docs.github.com/en/actions/how-tos/security-for-github-actions/using-artifact-attestations/).
+
+## 📝 Maintainer Notes
 
 The build environment is periodically built and released by GHA.
 
