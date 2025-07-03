@@ -20,6 +20,8 @@ concurrency:
 
 jobs:
   build:
+    permissions:
+      contents: read
     name: Build cross-build environment for Pyodide
     uses: ./.github/workflows/build-xbuildenv.yml
     with:
