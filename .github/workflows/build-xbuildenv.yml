@@ -27,7 +27,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.13"
 
@@ -47,7 +47,7 @@ jobs:
           ninja-build jq xxd
 
       - name: Cache ccache outputs
-        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: /tmp/ccache
           key: ccache-${{ matrix.build_type == 'debug' && 'debug-' || '' }}${{ hashFiles('Makefile.envs') }}
@@ -62,7 +62,7 @@ jobs:
           persist-credentials: false
 
       - name: Restore cached built packages
-        uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: |
             pyodide_checkout/packages/.libs/*
@@ -98,7 +98,7 @@ jobs:
           popd
 
       - name: Save ccached outputs
-        uses: actions/cache/save@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
+        uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: /tmp/ccache
           key: ccache-${{ matrix.build_type == 'debug' && 'debug-' || '' }}${{ hashFiles('Makefile.envs') }}
@@ -116,7 +116,7 @@ jobs:
           fi
 
       - name: Upload cross-build environment
-        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # v4.5.0
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: cross-build-env${{ matrix.build_type == 'debug' && '-debug' || '' }}
           path: |
