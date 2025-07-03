@@ -7,19 +7,26 @@ on:
     inputs:
       branch:
         type: string
-        description: 'The branch to build'
-        default: 'main'
+        description: "The branch to build"
+        default: "main"
         required: false
+
+permissions: {}
 
 jobs:
   build:
+    name: ${{ matrix.build_type }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         build_type: [release, debug]
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      
+        with:
+          persist-credentials: false
+
       - uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5.3.0
         with:
           python-version: "3.13"
@@ -52,6 +59,7 @@ jobs:
           ref: ${{ inputs.branch }}
           path: pyodide_checkout
           submodules: recursive
+          persist-credentials: false
 
       - name: Restore cached built packages
         uses: actions/cache/restore@1bd1e32a3bdc45362d1e726936510720a7c30a57 # v4.2.0
@@ -97,9 +105,11 @@ jobs:
 
       - name: Create cross-build environment
         working-directory: pyodide_checkout/
+        env:
+          MATRIX_BUILD_TYPE: ${{ matrix.build_type }}
         run: |
           python tools/create_xbuildenv.py .
-          if [[ "${{ matrix.build_type }}" == "debug" ]]; then
+          if [[ "$MATRIX_BUILD_TYPE" == "debug" ]]; then
             tar cjf xbuildenv-debug.tar.bz2 ./xbuildenv/
           else
             tar cjf xbuildenv.tar.bz2 ./xbuildenv/

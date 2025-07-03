@@ -12,13 +12,15 @@ on:
         default: 'main'
         required: false
 
+permissions: {}
+
 concurrency:
   group: build-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
+    name: Build cross-build environment for Pyodide
     uses: ./.github/workflows/build-xbuildenv.yml
-    secrets: inherit
     with:
       branch: ${{ github.event.inputs.branch || 'main' }}
