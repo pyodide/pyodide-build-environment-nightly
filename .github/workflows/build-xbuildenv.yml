@@ -23,7 +23,7 @@ jobs:
       matrix:
         build_type: [release, debug]
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
         with:
           persist-credentials: false
 
@@ -47,13 +47,13 @@ jobs:
           ninja-build jq xxd
 
       - name: Cache ccache outputs
-        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        uses: actions/cache/restore@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
         with:
           path: /tmp/ccache
           key: ccache-${{ matrix.build_type == 'debug' && 'debug-' || '' }}${{ hashFiles('Makefile.envs') }}
 
       - name: Checkout Pyodide
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
         with:
           repository: pyodide/pyodide
           ref: ${{ inputs.branch }}
@@ -62,7 +62,7 @@ jobs:
           persist-credentials: false
 
       - name: Restore cached built packages
-        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        uses: actions/cache/restore@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
         with:
           path: |
             pyodide_checkout/packages/.libs/*
@@ -98,7 +98,7 @@ jobs:
           popd
 
       - name: Save ccached outputs
-        uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        uses: actions/cache/save@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
         with:
           path: /tmp/ccache
           key: ccache-${{ matrix.build_type == 'debug' && 'debug-' || '' }}${{ hashFiles('Makefile.envs') }}
