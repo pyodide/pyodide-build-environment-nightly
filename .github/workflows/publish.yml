@@ -102,7 +102,7 @@ jobs:
           STEPS_RELEASE_VERSION_OUTPUTS_RELEASE_VERSION: ${{ steps.release_version.outputs.release_version }}
 
       - name: Create GitHub release with these wheels
-        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
+        uses: softprops/action-gh-release@6cbd405e2c4e67a21c47fa9e383d020e4e28b836 # v2.3.3
         with:
           files: |
             dist/*.tar.bz2
