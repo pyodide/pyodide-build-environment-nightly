@@ -36,11 +36,9 @@ jobs:
     if: >-
       github.repository == 'pyodide/pyodide-build-environment-nightly'
     permissions:
-      # Required to sign the attestations
-      id-token: write
-      attestations: write
-      # Required to upload to a GitHub release identifier
-      contents: write
+      id-token: write # Required to sign the attestations
+      attestations: write # Required to sign the attestations
+      contents: write # Required to upload to a GitHub release identifier
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
