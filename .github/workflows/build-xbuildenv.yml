@@ -47,7 +47,7 @@ jobs:
           ninja-build jq xxd
 
       - name: Cache ccache outputs
-        uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        uses: actions/cache/restore@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
         with:
           path: /tmp/ccache
           key: ccache-${{ matrix.build_type == 'debug' && 'debug-' || '' }}${{ hashFiles('Makefile.envs') }}
@@ -62,7 +62,7 @@ jobs:
           persist-credentials: false
 
       - name: Restore cached built packages
-        uses: actions/cache/restore@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        uses: actions/cache/restore@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
         with:
           path: |
             pyodide_checkout/packages/.libs/*
@@ -98,7 +98,7 @@ jobs:
           popd
 
       - name: Save ccached outputs
-        uses: actions/cache/save@9255dc7a253b0ccc959486e2bca901246202afeb # v5.0.1
+        uses: actions/cache/save@8b402f58fbc84540c8b491a91e594a4576fec3d7 # v5.0.2
         with:
           path: /tmp/ccache
           key: ccache-${{ matrix.build_type == 'debug' && 'debug-' || '' }}${{ hashFiles('Makefile.envs') }}
