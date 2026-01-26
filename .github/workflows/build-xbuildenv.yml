@@ -81,6 +81,7 @@ jobs:
           make -C cpython
           pip install -e ./pyodide-build
           PYODIDE_PACKAGES="numpy,scipy,cffi" make
+          make dist/python.exe
           ccache -s
 
       - name: Build debug version
