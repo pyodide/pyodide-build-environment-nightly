@@ -91,10 +91,10 @@ jobs:
           rm dist/pyodide.asm.js
           source pyodide_env.sh
           ccache -z
-          PYODIDE_DEBUG=1 make dist/pyodide.asm.js
+          PYODIDE_DEBUG=1 make dist/pyodide.asm.mjs
           ccache -s
           pushd dist
-          npx prettier -w pyodide.asm.js
+          npx prettier -w pyodide.asm.mjs
           npx prettier -w pyodide.js
           popd
 
