@@ -88,7 +88,7 @@ jobs:
         if: matrix.build_type == 'debug'
         working-directory: pyodide_checkout/
         run: |
-          rm dist/pyodide.asm.js
+          rm dist/pyodide.asm.mjs
           source pyodide_env.sh
           ccache -z
           PYODIDE_DEBUG=1 make dist/pyodide.asm.mjs
