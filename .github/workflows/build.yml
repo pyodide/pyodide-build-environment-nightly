@@ -11,6 +11,10 @@ on:
         description: 'The branch to build'
         default: 'main'
         required: false
+      python-version:
+        description: 'The Python version to use'
+        default: '3.13'
+        required: false
 
 permissions: {}
 
@@ -26,3 +30,4 @@ jobs:
     uses: ./.github/workflows/build-xbuildenv.yml
     with:
       branch: ${{ github.event.inputs.branch || 'main' }}
+      python-version: ${{ github.event.inputs.python-version || '3.13' }}
