@@ -10,6 +10,11 @@ on:
         description: "The branch to build"
         default: "main"
         required: false
+      python-version:
+        type: string
+        description: "The Python version to use, should match the Python version used in Pyodide"
+        default: "3.13"
+        required: false
 
 permissions: {}
 
@@ -29,7 +34,7 @@ jobs:
 
       - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
-          python-version: "3.13"
+          python-version: ${{ inputs.python-version }}
 
       - uses: actions/setup-node@v6
         with:
