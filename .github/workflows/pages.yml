@@ -1,4 +1,4 @@
-name: Deploy metadata to GitHub Pages
+name: Deploy nightly environments metadata to GitHub Pages
 
 on:
   push:
@@ -19,6 +19,7 @@ concurrency:
 
 jobs:
   deploy:
+    name: Deploy nightly environments metadata to GitHub Pages
     runs-on: ubuntu-latest
     environment:
       name: github-pages
