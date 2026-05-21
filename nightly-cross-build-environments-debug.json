@@ -1,0 +1,354 @@
+{
+  "releases": {
+    "20260520": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260520/xbuildenv-debug.tar.bz2",
+      "sha256": "1f31d4385a81b99c164fee54bc310a9fef90fd5d4571fae22c0d6931486e62f6",
+      "version": "20260520",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-05-20T04:40:12Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260510": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260510/xbuildenv-debug.tar.bz2",
+      "sha256": "2037ccf816898f4e4f757ac4b5a0e110fad26c46e9712a7ef87e7cbd7027a41b",
+      "version": "20260510",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-05-10T04:22:58Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260501": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260501/xbuildenv-debug.tar.bz2",
+      "sha256": "5faa7cbe39aaa20ebbac87ff0ea9e377c6e6f6d833c128180b16e5ae2c5cbc26",
+      "version": "20260501",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-05-01T04:25:33Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260420": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260420/xbuildenv-debug.tar.bz2",
+      "sha256": "bd4472f84695e83750cb9d3b9b797a3e0bcf154abd6fdca310ee4c88f4206188",
+      "version": "20260420",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-04-20T04:06:06Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260406": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260406/xbuildenv-debug.tar.bz2",
+      "sha256": "0503eeab60efb99a5c2e8e5d630397f71ccd1645611691ba283a52b2274a54b6",
+      "version": "20260406",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-04-06T10:36:54Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260401": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260401/xbuildenv-debug.tar.bz2",
+      "sha256": "c99cea6d390f4455199add3ced3daa6bc2acce8332cc094019486926d74eb6f3",
+      "version": "20260401",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2026-04-01T03:55:56Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260324_314_alpha": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260324_314_alpha/xbuildenv-debug.tar.bz2",
+      "sha256": "88c5f6d0844881c39e1b91144b2ef2fd092a73696c5bec4808505f27989e8539",
+      "version": "20260324_314_alpha",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-03-24T07:39:35Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260320_314_alpha2": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260320_314_alpha2/xbuildenv-debug.tar.bz2",
+      "sha256": "60b8426b6eb2b60872a611d9249ca16745a638b4ef267ba8c565e980a55fa80a",
+      "version": "20260320_314_alpha2",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-03-20T10:15:46Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260320_314_alpha": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260320_314_alpha/xbuildenv-debug.tar.bz2",
+      "sha256": "068b6bf3a65fda87a55574271762e35dc4f3bb1d5abd5584c3738376f0732449",
+      "version": "20260320_314_alpha",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-03-20T08:26:51Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260320": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260320/xbuildenv-debug.tar.bz2",
+      "sha256": "a0ac96a3578a08b528153ba45a2b1f5ea846acded6b54eaa03a5745161c7107a",
+      "version": "20260320",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-03-20T03:10:15Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260301": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260301/xbuildenv-debug.tar.bz2",
+      "sha256": "35e9cce3cc40345522befbcb985e2270ca8fc58cb6c678721447b33bdfafd047",
+      "version": "20260301",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.0",
+      "published_at": "2026-03-01T03:22:56Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260220": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260220/xbuildenv-debug.tar.bz2",
+      "sha256": "50d662b566989d01b7df3f352dc7f2af9e108112b7510ce5ec9a81384b44f439",
+      "version": "20260220",
+      "python_version": "3.13.2",
+      "emscripten_version": "5.0.0",
+      "published_at": "2026-02-20T03:10:55Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260210": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260210/xbuildenv-debug.tar.bz2",
+      "sha256": "ad17999218c0138f974fb2611638af072c506fec4d55dd746095e49ef5a56ba0",
+      "version": "20260210",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2026-02-10T03:27:03Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260201": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260201/xbuildenv-debug.tar.bz2",
+      "sha256": "be05a476d4a1fd3b5660923b58e7c05bddd9964fde26859ea4c0fe2627edd973",
+      "version": "20260201",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2026-02-01T03:26:27Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260127": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260127/xbuildenv-debug.tar.bz2",
+      "sha256": "5294ff1affde9bc6457127377751458d2d89d17e6a5c561b2ef2c8aab052d4fa",
+      "version": "20260127",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2026-01-27T05:41:41Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260120": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260120/xbuildenv-debug.tar.bz2",
+      "sha256": "937efc4f35d8332fb898a1b43c71a5df78e83c18bb766863eed3602ddf7aab5e",
+      "version": "20260120",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2026-01-20T02:38:48Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260110": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260110/xbuildenv-debug.tar.bz2",
+      "sha256": "59f11bd667e39a22759337f791937b4cff8b0ff4ea75d06fed72628b3b7614e6",
+      "version": "20260110",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2026-01-10T02:34:50Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20260101": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20260101/xbuildenv-debug.tar.bz2",
+      "sha256": "79fe18b10cbe8ca528fb441ff8447790fa23b001df582712b5acd51a320081bb",
+      "version": "20260101",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2026-01-01T02:53:30Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251220": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251220/xbuildenv-debug.tar.bz2",
+      "sha256": "0076d4b4252c0d77a724e0e8f8a462923a3392d99fde6bb04c2f81700640e769",
+      "version": "20251220",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-12-20T02:29:47Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251216": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251216/xbuildenv-debug.tar.bz2",
+      "sha256": "25cffae0c9351323df7bd8a1fb07c313641223d2f70661c91f2c21b7d1128eda",
+      "version": "20251216",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-12-16T05:48:32Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251210": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251210/xbuildenv-debug.tar.bz2",
+      "sha256": "062305a16421117a4bb65dccc383bc243832d7963f598019766c4d7b7523bc9f",
+      "version": "20251210",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-12-10T02:34:02Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251201": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251201/xbuildenv-debug.tar.bz2",
+      "sha256": "eef83a21bede5d8a442f7b79fc8d9814d02031fc6607ce8c4aff6709af311955",
+      "version": "20251201",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-12-01T02:53:16Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251120": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251120/xbuildenv-debug.tar.bz2",
+      "sha256": "841bf37b2cf27bdf68c243f489bf2c5a33807ffb3ed9442d013d183ab78671d9",
+      "version": "20251120",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-11-20T02:26:40Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251110": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251110/xbuildenv-debug.tar.bz2",
+      "sha256": "a4bba06b895b2d66a26854f721ba4a09683c014f3cf14834989c172d68e86081",
+      "version": "20251110",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-11-10T02:33:49Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251101": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251101/xbuildenv-debug.tar.bz2",
+      "sha256": "01631ff64775848118b66b31546468395a16e450ccbe02c445ff34514ea3c086",
+      "version": "20251101",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-11-01T02:31:59Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251020": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251020/xbuildenv-debug.tar.bz2",
+      "sha256": "554e042c3f937cd86cc6e9136e0c0e9b34e70ee8d0da9f54f744e5e99824f215",
+      "version": "20251020",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-10-20T02:30:40Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251010": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251010/xbuildenv-debug.tar.bz2",
+      "sha256": "c7c01d4a080e5e0b3958bddc7fd916c7a3d7c67c86f84a559bf171185ecfdb66",
+      "version": "20251010",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-10-10T02:20:53Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20251001": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20251001/xbuildenv-debug.tar.bz2",
+      "sha256": "1a92b1abf5354a50065a167d0215a3580551c45353d25c9a8c3da8ef47e76dbe",
+      "version": "20251001",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-10-01T02:31:28Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20250920": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250920/xbuildenv-debug.tar.bz2",
+      "sha256": "b6fb1ae6c9012bd6b1af1e99f84740c8d78fcc22d78e8404d9fffb928f092308",
+      "version": "20250920",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-09-20T02:17:04Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20250910": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250910/xbuildenv-debug.tar.bz2",
+      "sha256": "5eee98bd5b0a72b612bb25a4ca401064a00a82bef76724973e4b2cd36ffabdb7",
+      "version": "20250910",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-09-10T02:17:36Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20250901": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250901/xbuildenv-debug.tar.bz2",
+      "sha256": "72df97e0a0d892031035b0ac15c99e7fdf3fcf7e910f7a6ed222a114c10c0e82",
+      "version": "20250901",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-09-01T02:37:11Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20250820": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250820/xbuildenv-debug.tar.bz2",
+      "sha256": "b628c1062327be4a9e426c31839085704b09283d5b26e1197ffa5bd5a2cc5034",
+      "version": "20250820",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-08-20T02:27:13Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20250810": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250810/xbuildenv-debug.tar.bz2",
+      "sha256": "2977e718d5254467d9973f3f537ddba72df6aa445bfa436ed554dba7967e77db",
+      "version": "20250810",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-08-10T02:53:47Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20250801": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250801/xbuildenv-debug.tar.bz2",
+      "sha256": "ace12646c03d2b504d0b66cc9ae41d44534011611b0175b456c03f84c9fa2efe",
+      "version": "20250801",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-08-02T08:24:49Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
+    "20250703": {
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20250703/xbuildenv-debug.tar.bz2",
+      "sha256": "8e9e1e99aaeb547cbae5c49922796c26d0ebde3eed357b87b5bc14a640259ea2",
+      "version": "20250703",
+      "python_version": "3.13.2",
+      "emscripten_version": "4.0.9",
+      "published_at": "2025-07-02T23:27:43Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    }
+  }
+}
