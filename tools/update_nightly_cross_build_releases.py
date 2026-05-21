@@ -23,6 +23,8 @@ DEBUG_FILENAME = "xbuildenv-debug.tar.bz2"
 METADATA_FILE = Path(__file__).parents[1] / "nightly-cross-build-environments.json"
 EMPTY_METADATA = '{"releases": {}}'
 
+MIN_PYODIDE_BUILD_VERSION = "0.26.0"
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -100,6 +102,8 @@ def add_version(
         "python_version": python_version,
         "emscripten_version": emscripten_version,
         "published_at": published_at,
+        "min_pyodide_build_version": MIN_PYODIDE_BUILD_VERSION,
+        "max_pyodide_build_version": None,
     }
     metadata["releases"] = dict(
         sorted(
