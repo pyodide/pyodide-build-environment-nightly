@@ -112,3 +112,27 @@ jobs:
           tag_name: ${{ steps.release_version.outputs.release_version }}
           fail_on_unmatched_files: true
           name: ${{ steps.release_version.outputs.release_version }}
+
+      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: false
+
+      - name: Update cross-build environments metadata
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.release_version.outputs.release_version }}
+        run: uv run tools/update_nightly_cross_build_releases.py "$VERSION"
+
+      - name: Commit and push metadata updates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.release_version.outputs.release_version }}
+        run: |
+          gh auth setup-git
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add nightly-cross-build-environments.json
+          git commit -m "Scheduled update for nightly  ${VERSION} xbuildenvs metadata [skip ci]"
+          git push origin main
