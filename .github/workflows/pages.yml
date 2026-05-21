@@ -5,7 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "nightly-cross-build-environments.json"
+      - "nightly-cross-build-environments-release.json"
+      - "nightly-cross-build-environments-debug.json"
   workflow_dispatch:
 
 permissions: {}
@@ -30,7 +31,9 @@ jobs:
       - name: Prepare GitHub Pages content
         run: |
           mkdir -p _site/api/v2
-          cp nightly-cross-build-environments.json _site/api/v2
+          cp nightly-cross-build-environments-release.json _site/api/v2/release.json
+          cp nightly-cross-build-environments-debug.json   _site/api/v2/debug.json
+          cp docs/index.html _site/index.html
 
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
@@ -45,7 +48,7 @@ jobs:
       id-token: write # Required for OIDC token used by the deploy-pages action
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}/api/v2/nightly-cross-build-environments.json
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

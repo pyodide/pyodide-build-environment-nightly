@@ -20,7 +20,9 @@ BASE_URL = "https://github.com/{repo}/releases/download/{version}/{filename}"
 RELEASE_FILENAME = "xbuildenv.tar.bz2"
 DEBUG_FILENAME = "xbuildenv-debug.tar.bz2"
 
-METADATA_FILE = Path(__file__).parents[1] / "nightly-cross-build-environments.json"
+REPO_ROOT = Path(__file__).parents[1]
+RELEASE_METADATA_FILE = REPO_ROOT / "nightly-cross-build-environments-release.json"
+DEBUG_METADATA_FILE = REPO_ROOT / "nightly-cross-build-environments-debug.json"
 EMPTY_METADATA = '{"releases": {}}'
 
 MIN_PYODIDE_BUILD_VERSION = "0.26.0"
@@ -28,7 +30,7 @@ MIN_PYODIDE_BUILD_VERSION = "0.26.0"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        "Update the nightly cross-build environments metadata file"
+        "Update the nightly cross-build environments metadata files"
     )
     parser.add_argument("version", help="The nightly version tag (say, 20260520)")
     return parser.parse_args()
@@ -81,24 +83,20 @@ def _version_sort_key(tag: str) -> tuple[int, str]:
     return (date_part, tag)
 
 
-def add_version(
+def _add_entry(
     raw_metadata: str,
     version: str,
     url: str,
     sha256: str,
-    debug_url: str | None,
-    debug_sha256: str | None,
     python_version: str,
     emscripten_version: str,
-    published_at: str | None,
+    published_at: str,
 ) -> str:
     metadata = json.loads(raw_metadata)
     metadata["releases"][version] = {
         "version": version,
         "url": url,
         "sha256": sha256,
-        "debug_url": debug_url,
-        "debug_sha256": debug_sha256,
         "python_version": python_version,
         "emscripten_version": emscripten_version,
         "published_at": published_at,
@@ -136,36 +134,27 @@ def main() -> None:
             makefile_content, "PYODIDE_EMSCRIPTEN_VERSION"
         )
 
+    published_at = get_published_at(version)
+
+    # Update release metadata
+    raw = RELEASE_METADATA_FILE.read_text() if RELEASE_METADATA_FILE.exists() else EMPTY_METADATA
+    RELEASE_METADATA_FILE.write_text(
+        _add_entry(raw, version, release_url, release_sha256, python_version, emscripten_version, published_at) + "\n"
+    )
+    print(f"Updated release metadata: python={python_version} emscripten={emscripten_version}")
+
+    # Update debug metadata only if a debug tarball exists
     print(f"Downloading debug tarball for {version} ...")
     debug_content = get_archive(debug_url)
     if debug_content is not None:
         debug_sha256 = hashlib.sha256(debug_content).hexdigest()
-        print(f"  debug build found (sha256={debug_sha256[:12]}...)")
+        raw = DEBUG_METADATA_FILE.read_text() if DEBUG_METADATA_FILE.exists() else EMPTY_METADATA
+        DEBUG_METADATA_FILE.write_text(
+            _add_entry(raw, version, debug_url, debug_sha256, python_version, emscripten_version, published_at) + "\n"
+        )
+        print(f"Updated debug metadata: sha256={debug_sha256[:12]}...")
     else:
-        debug_url = None
-        debug_sha256 = None
-        print("  no debug build for this version")
-
-    published_at = get_published_at(version)
-
-    raw = METADATA_FILE.read_text() if METADATA_FILE.exists() else EMPTY_METADATA
-    new_metadata = add_version(
-        raw,
-        version,
-        release_url,
-        release_sha256,
-        debug_url,
-        debug_sha256,
-        python_version,
-        emscripten_version,
-        published_at,
-    )
-    METADATA_FILE.write_text(new_metadata + "\n")
-    print(
-        f"Updated metadata for {version}: "
-        f"python={python_version} emscripten={emscripten_version} "
-        f"published_at={published_at} debug={'yes' if debug_sha256 else 'no'}"
-    )
+        print("  no debug build for this version, debug metadata unchanged")
 
 
 if __name__ == "__main__":

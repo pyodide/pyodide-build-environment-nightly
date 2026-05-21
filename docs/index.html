@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyodide nightly cross-build environments</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 720px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+        color: #1a1a1a;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      p {
+        line-height: 1.6;
+        color: #444;
+      }
+      .endpoints {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+      .endpoint {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 1rem 1.25rem;
+      }
+      .endpoint h2 {
+        font-size: 1rem;
+        margin: 0 0 0.4rem;
+      }
+      .endpoint p {
+        margin: 0 0 0.5rem;
+        font-size: 0.9rem;
+      }
+      .endpoint a {
+        font-family: monospace;
+        font-size: 0.85rem;
+        color: #0969da;
+        word-break: break-all;
+      }
+      footer {
+        margin-top: 3rem;
+        font-size: 0.85rem;
+        color: #888;
+      }
+      footer a {
+        color: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pyodide nightly cross-build environments</h1>
+    <p>
+      Nightly cross-build environments (xbuildenvs) for building Pyodide packages against
+      unreleased tip-of-tree versions of Pyodide
+    </p>
+
+    <div class="endpoints">
+      <div class="endpoint">
+        <h2>Release builds</h2>
+        <p>
+          Standard cross-build environments, suitable for most package builds.
+        </p>
+        <a href="api/v2/release.json">api/v2/release.json</a>
+      </div>
+      <div class="endpoint">
+        <h2>Debug builds</h2>
+        <p>
+          Cross-build environments compiled with <code>PYODIDE_DEBUG=1</code>.
+        </p>
+        <a href="api/v2/debug.json">api/v2/debug.json</a>
+      </div>
+    </div>
+
+    <p>
+      Install a nightly environment via
+      <a href="https://github.com/pyodide/pyodide-build">pyodide-build</a>:
+    </p>
+    <pre>
+      <code>
+      pyodide xbuildenv install --nightly                  # latest release build
+      pyodide xbuildenv install --debug                    # latest debug build
+      pyodide xbuildenv install --nightly 20260520         # specific version
+      pyodide xbuildenv search --nightly --debug --all     # search all versions
+    </code>
+  </pre>
+
+    <footer>
+      <a href="https://github.com/pyodide/pyodide-build-environment-nightly"
+        >GitHub</a
+      >
+      &mdash;
+      <a href="https://pyodide.org">pyodide.org</a>
+    </footer>
+  </body>
+</html>
