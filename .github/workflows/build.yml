@@ -1,4 +1,4 @@
-name: Build Cross-build environment for pyodide-build
+name: Build
 
 on:
   pull_request:
@@ -26,7 +26,7 @@ jobs:
   build:
     permissions:
       contents: read
-    name: Build cross-build environment for Pyodide
+    name: Build xbuildenv
     uses: ./.github/workflows/build-xbuildenv.yml
     with:
       branch: ${{ github.event.inputs.branch || 'main' }}
