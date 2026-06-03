@@ -104,17 +104,28 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           STEPS_RELEASE_VERSION_OUTPUTS_RELEASE_VERSION: ${{ steps.release_version.outputs.release_version }}
 
+      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: false
+
+      - name: Generate release notes
+        env:
+          RELEASE_VERSION: ${{ steps.release_version.outputs.release_version }}
+        run: |
+          uv run tools/generate_release_notes.py \
+            "$RELEASE_VERSION" \
+            dist/xbuildenv.tar.bz2 \
+            dist/xbuildenv-debug.tar.bz2 \
+            > release-notes.md
+
       - name: Create GitHub release with these wheels
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RELEASE_VERSION: ${{ steps.release_version.outputs.release_version }}
         run: |
           gh release create "$RELEASE_VERSION" dist/*.tar.bz2 \
-            --title "$RELEASE_VERSION"
-
-      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
-        with:
-          enable-cache: false
+            --title "$RELEASE_VERSION" \
+            --notes-file release-notes.md
 
       - name: Update cross-build environments metadata
         env:
