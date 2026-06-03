@@ -135,3 +135,8 @@ jobs:
           git add nightly-cross-build-environments-release.json nightly-cross-build-environments-debug.json
           git commit -m "Scheduled update for nightly  ${VERSION} xbuildenvs metadata [skip ci]"
           git push origin main
+
+      - name: Deploy GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run pages.yml --ref main
