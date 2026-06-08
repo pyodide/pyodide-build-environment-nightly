@@ -2,8 +2,8 @@ name: Release Cross-build environment
 
 on:
   schedule:
-    # Run at 00:00 UTC on the 1st, 10th, and 20th of every month
-    - cron: "0 0 1,10,20 * *"
+    # Run daily at 03:00 UTC
+    - cron: "0 3 * * *"
   workflow_dispatch:
     inputs:
       branch:
@@ -11,7 +11,7 @@ on:
         default: "main"
         required: false
       release_version:
-        description: "The version to release"
+        description: "Required. The version to release, used as the tag and release name (for example 20260608). It must not match an existing tag, so if you're re-running this on the same day to fix a broken nightly, use something like 20260608-1 instead."
         required: true
       python_version:
         description: "The Python version to use"
