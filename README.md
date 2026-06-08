@@ -14,6 +14,27 @@ You can use the `pyodide xbuildenv install` command to install the build environ
 
 #### Release builds
 
+> [!NOTE]
+> The `--nightly` and `--debug` flags below need `pyodide-build >= 0.35.0`. If you're on an older version, use the `--url` form shown further down instead.
+
+```bash
+pip install pyodide-build>=0.35.0
+
+# See which nightly releases are available
+pyodide xbuildenv search --nightly
+
+# Install the latest nightly release
+pyodide xbuildenv install --nightly
+
+# Or install a specific nightly release by its date
+pyodide xbuildenv install 20250125 --nightly
+
+# Now you can use the build environment to build your package
+pyodide build
+```
+
+On older `pyodide-build` versions, install directly from the release URL instead:
+
 ```bash
 pip install pyodide-build
 
@@ -27,6 +48,24 @@ pyodide build
 #### Debug builds
 
 For debugging purposes, you can also use the debug version of the cross build environment:
+
+```bash
+pip install pyodide-build
+
+# See which nightly debug releases are available
+pyodide xbuildenv search --debug
+
+# Install the latest nightly debug release
+pyodide xbuildenv install --debug
+
+# Or install a specific nightly debug release by its date
+pyodide xbuildenv install 20250125 --debug
+
+# Now you can use the build environment to build your package
+pyodide build
+```
+
+On older `pyodide-build` versions, install directly from the release URL instead:
 
 ```bash
 pip install pyodide-build
