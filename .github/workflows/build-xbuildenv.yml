@@ -66,6 +66,25 @@ jobs:
           submodules: recursive
           persist-credentials: false
 
+      - name: Replace CLAPACK source URL
+        working-directory: pyodide_checkout/
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("packages/libf2c/meta.yaml")
+          old = "http://www.netlib.org/clapack/clapack.tgz"
+          new = "https://web.archive.org/web/20260509221335/https://www.netlib.org/clapack/clapack.tgz"
+
+          text = path.read_text()
+          if new in text:
+              raise SystemExit(0)
+          if old not in text:
+              raise SystemExit(f"Did not find expected CLAPACK URL in {path}")
+
+          path.write_text(text.replace(old, new))
+          PY
+
       - name: Restore cached built packages
         uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
