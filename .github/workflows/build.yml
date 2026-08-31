@@ -27,7 +27,7 @@ jobs:
     permissions:
       contents: read
     name: Build xbuildenv
-    uses: ./.github/workflows/build-xbuildenv.yml
+    uses: $/.github/workflows/build-xbuildenv.yml
     with:
       branch: ${{ github.event.inputs.branch || 'main' }}
       python-version: ${{ github.event.inputs.python-version || '3.14' }}
