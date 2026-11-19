@@ -1,5 +1,15 @@
 {
   "releases": {
+    "20261119": {
+      "version": "20261119",
+      "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20261119/xbuildenv.tar.bz2",
+      "sha256": "8defc50c0dd7dbcea6a9a8dac174c21d79ccf63bcc63c4cd8c0b1bf21252229d",
+      "python_version": "3.14.2",
+      "emscripten_version": "5.0.3",
+      "published_at": "2026-11-19T11:34:01Z",
+      "min_pyodide_build_version": "0.26.0",
+      "max_pyodide_build_version": null
+    },
     "20261110": {
       "version": "20261110",
       "url": "https://github.com/pyodide/pyodide-build-environment-nightly/releases/download/20261110/xbuildenv.tar.bz2",
